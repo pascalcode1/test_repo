@@ -16,7 +16,6 @@ class OVIntegration(object):
         self.userName = userName
         self.password = password
         self.integrationName = integrationName
-        self.file = file
         self.errors = []
         self.request = {}
         self.jsonData = {}

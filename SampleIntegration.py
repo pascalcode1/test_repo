@@ -3,9 +3,9 @@ import json
 import os
 import time
 
-print os.path.exists('PasswordFile.json')
+print (os.path.exists('PasswordFile.json'))
 with open('PasswordFile.json', "rb") as PFile:
-    PasswordData = json.load(PFile)
+    PasswordData = json.loads(PFile.read().decode('utf-8'))
 
 user = PasswordData["UserName"]
 password = PasswordData["Password"]
