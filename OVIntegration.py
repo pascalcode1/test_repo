@@ -20,7 +20,6 @@ class OVIntegration(object):
         self.request = {}
         self.jsonData = {}
         self.processId = None
-        self.logMessage = ""
         self.Parameters = None
         self.urlRun = None
         self.urlLog = None
@@ -35,6 +34,8 @@ class OVIntegration(object):
         self.urlRun = self.URL + "/api/v3/integrations/runs?integration_name=" + self.integrationName + "&status=Running"
 
         self.curl = curl('GET', self.urlRun, auth=(self.userName, self.password))
+        print(str(self.curl.jsonData))
+        print(str(self.curl.errors))
         self.jsonData = self.curl.jsonData
         self.processId = self.jsonData[0]['process_id']
 
