@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo "test test test master MASTER"
+echo "test test test master MASTER up"
