@@ -1,0 +1,19 @@
+com.onevizion.integration.scheduler.exception.IntegrationFilesProviderException: Cannot create branch
+	at com.onevizion.integration.scheduler.GitIntegrationFilesProvider.createLocalBranch(GitIntegrationFilesProvider.java:116)
+	at com.onevizion.integration.scheduler.GitIntegrationFilesProvider.updateIntegrationFiles(GitIntegrationFilesProvider.java:86)
+	at com.onevizion.integration.scheduler.IntegrationRunHelper.prepareForIntegrationRun(IntegrationRunHelper.java:46)
+	at com.onevizion.integration.scheduler.IntegrationExecutorTask.executeIntegration(IntegrationExecutorTask.java:48)
+	at com.onevizion.integration.scheduler.IntegrationExecutorTask.run(IntegrationExecutorTask.java:41)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:266)
+	at java.util.concurrent.FutureTask.run(FutureTask.java)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.eclipse.jgit.api.errors.RefNotFoundException: Ref origin/test_branch cannot be resolved
+	at org.eclipse.jgit.api.CreateBranchCommand.getStartPointObjectId(CreateBranchCommand.java:276)
+	at org.eclipse.jgit.api.CreateBranchCommand.call(CreateBranchCommand.java:129)
+	at com.onevizion.integration.scheduler.GitIntegrationFilesProvider.createLocalBranch(GitIntegrationFilesProvider.java:113)
+	... 12 more
