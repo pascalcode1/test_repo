@@ -5,4 +5,4 @@ i = 0
 while i < 10:
 	time.sleep(1)
 	print('Test ' + str(i))
-	i = i + 1
+	i = i + 5
