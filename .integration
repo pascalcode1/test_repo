@@ -1,4 +1,4 @@
 command = ./testsc.sh
-config_file_name = password_template.json
+settings_file_name = password_template.json
 default_schedule = 0 * * * * ?
 read_from_stdout = true
