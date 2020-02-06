@@ -1,0 +1,8 @@
+{
+    "oneVizionUrl" : "",
+    "oneVizionLogin" : "",
+    "oneVizionPwd" : "",
+    "serviceId" : 0,
+    "maxAttempts" : 2,
+    "nextAttemptDelay" : 30
+}
