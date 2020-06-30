@@ -10,7 +10,7 @@ print(data["processId"])
 print(data["ovUrl"])
 print(data["logLevel"])
 
-f = open("guru99.txt","w+")
+f = open("ihub_parameters.json","w+")
 for i in range(10):
     f.write("This is line %d\r\n" % (i+1))
 f.close()
