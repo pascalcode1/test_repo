@@ -3,6 +3,11 @@ import json
 print('777 111')
 print('777 888 11999')
 
+a = 0
+b = 1
+while True:
+    a = b + 1
+
 with open('ihub_parameters.json', "rb") as PFile:
     data = json.loads(PFile.read().decode('utf-8'))
 
