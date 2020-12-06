@@ -5,7 +5,7 @@ from hero import *
 heroes = []
 h = Hero(datetime.date(1999, 9, 9), True, 'Geralt of Rivia', 100, Profession.lumberjack)
 heroes.append(h)
-heroes.append(Hero(datetime.date(2003, 10, 19), True, 'Ilya Gubenkov', 90, Profession.miner))
+heroes.append(Hero(datetime.date(2020, 10, 19), True, 'Ilya Gubenkov', 90, Profession.miner))
 
 while True:
     command = input("Write a command \r\n").upper()
