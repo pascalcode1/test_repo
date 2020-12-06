@@ -1,7 +1,31 @@
 import json
 
-print('777 111')
-print('777 888 11999')
+from hero import *
+
+heroes = []
+h = Hero(datetime.date(1999, 9, 9), True, 'Geralt of Rivia', 100, Profession.lumberjack)
+heroes.append(h)
+heroes.append(Hero(datetime.date(2003, 10, 19), True, 'Ilya Gubenkov', 90, Profession.miner))
+
+while True:
+    command = input("Write a command \r\n").upper()
+
+    if command == "ADD":
+        new_hero = Hero()
+        new_hero.add()
+        heroes.append(new_hero)
+
+    if command == "EXIT":
+        break
+
+    if command == "SHOW":
+        for hero in heroes:
+            print(hero.show())
+
+    if command[0:3].find("ID ") >= 0:
+        hero_id = int(command[3::])
+        if 0 <= hero_id < len(heroes):
+            print(heroes[hero_id].show())
 
 with open('ihub_parameters.json', "rb") as PFile:
     data = json.loads(PFile.read().decode('utf-8'))
