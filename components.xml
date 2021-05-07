@@ -1,148 +1,127 @@
-<?xml version="1.0"?><COMPONENTS author="amoiseenko" description="" name="localhost_BPL_11142018105533.xml" site="http://dev2.vqs.net:8080" ts="" ><IMPORT>
- <IMPORT_ITEM>
-  <DATE_FORMAT>DD/MM/YYYY</DATE_FORMAT>
-  <FIELD_DELIMITER>
-   <DELIMITER>[44]</DELIMITER>
-   <DESCRIPTION>Comma</DESCRIPTION>
-  </FIELD_DELIMITER>
-  <IMP_ACTION>3</IMP_ACTION>
-  <IMP_FILE_TYPE>
-   <IMP_FILE_TYPE_ID>1</IMP_FILE_TYPE_ID>
-   <IMP_FILE_TYPE>CSV</IMP_FILE_TYPE>
-  </IMP_FILE_TYPE>
-  <IMP_SPEC_ID>100093206</IMP_SPEC_ID>
-  <KEEP_SQL_LOADER_EXT_TABLE>0</KEEP_SQL_LOADER_EXT_TABLE>
-  <LINE_DELIMITER>
-   <DELIMITER>[44]</DELIMITER>
-   <DESCRIPTION>Comma</DESCRIPTION>
-  </LINE_DELIMITER>
-  <NAME>TestIntegration</NAME>
-  <STRING_QUOTE>
-   <DELIMITER>[34]</DELIMITER>
-   <DESCRIPTION>Double Quotes</DESCRIPTION>
-  </STRING_QUOTE>
-  <USE_SQL_LOADER>0</USE_SQL_LOADER>
-  <IMP_COLUMNS/>
-  <IMP_ENTITYS/>
-  <PROGRAM_ID>10009255</PROGRAM_ID>
-  <TIME_FORMAT>HH12:MI:SS PM</TIME_FORMAT>
-  <VALIDATE_DATA_MODE_ID>3</VALIDATE_DATA_MODE_ID>
- </IMPORT_ITEM>
- <IMPORT_ITEM>
-  <DATE_FORMAT>DD/MM/YYYY</DATE_FORMAT>
-  <FIELD_DELIMITER>
-   <DELIMITER>[44]</DELIMITER>
-   <DESCRIPTION>Comma</DESCRIPTION>
-  </FIELD_DELIMITER>
-  <IMP_ACTION>3</IMP_ACTION>
-  <IMP_FILE_TYPE>
-   <IMP_FILE_TYPE_ID>1</IMP_FILE_TYPE_ID>
-   <IMP_FILE_TYPE>CSV</IMP_FILE_TYPE>
-  </IMP_FILE_TYPE>
-  <IMP_SPEC_ID>100093207</IMP_SPEC_ID>
-  <KEEP_SQL_LOADER_EXT_TABLE>0</KEEP_SQL_LOADER_EXT_TABLE>
-  <LINE_DELIMITER>
-   <DELIMITER>[44]</DELIMITER>
-   <DESCRIPTION>Comma</DESCRIPTION>
-  </LINE_DELIMITER>
-  <NAME>TestIntegration2</NAME>
-  <STRING_QUOTE>
-   <DELIMITER>[34]</DELIMITER>
-   <DESCRIPTION>Double Quotes</DESCRIPTION>
-  </STRING_QUOTE>
-  <USE_SQL_LOADER>0</USE_SQL_LOADER>
-  <IMP_COLUMNS/>
-  <IMP_ENTITYS/>
-  <PROGRAM_ID>10009255</PROGRAM_ID>
-  <TIME_FORMAT>HH12:MI:SS PM</TIME_FORMAT>
-  <VALIDATE_DATA_MODE_ID>3</VALIDATE_DATA_MODE_ID>
- </IMPORT_ITEM>
- <IMPORT_ITEM>
-  <DATE_FORMAT>DD/MM/YYYY</DATE_FORMAT>
-  <FIELD_DELIMITER>
-   <DELIMITER>[44]</DELIMITER>
-   <DESCRIPTION>Comma</DESCRIPTION>
-  </FIELD_DELIMITER>
-  <IMP_ACTION>3</IMP_ACTION>
-  <IMP_FILE_TYPE>
-   <IMP_FILE_TYPE_ID>1</IMP_FILE_TYPE_ID>
-   <IMP_FILE_TYPE>CSV</IMP_FILE_TYPE>
-  </IMP_FILE_TYPE>
-  <IMP_SPEC_ID>100093208</IMP_SPEC_ID>
-  <KEEP_SQL_LOADER_EXT_TABLE>0</KEEP_SQL_LOADER_EXT_TABLE>
-  <LINE_DELIMITER>
-   <DELIMITER>[44]</DELIMITER>
-   <DESCRIPTION>Comma</DESCRIPTION>
-  </LINE_DELIMITER>
-  <NAME>TestIntegration3</NAME>
-  <STRING_QUOTE>
-   <DELIMITER>[34]</DELIMITER>
-   <DESCRIPTION>Double Quotes</DESCRIPTION>
-  </STRING_QUOTE>
-  <USE_SQL_LOADER>0</USE_SQL_LOADER>
-  <IMP_COLUMNS/>
-  <IMP_ENTITYS/>
-  <PROGRAM_ID>10009255</PROGRAM_ID>
-  <TIME_FORMAT>HH12:MI:SS PM</TIME_FORMAT>
-  <VALIDATE_DATA_MODE_ID>3</VALIDATE_DATA_MODE_ID>
- </IMPORT_ITEM>
- <IMPORT_ITEM>
-  <DATE_FORMAT>DD/MM/YYYY</DATE_FORMAT>
-  <FIELD_DELIMITER>
-   <DELIMITER>[44]</DELIMITER>
-   <DESCRIPTION>Comma</DESCRIPTION>
-  </FIELD_DELIMITER>
-  <IMP_ACTION>3</IMP_ACTION>
-  <IMP_FILE_TYPE>
-   <IMP_FILE_TYPE_ID>1</IMP_FILE_TYPE_ID>
-   <IMP_FILE_TYPE>CSV</IMP_FILE_TYPE>
-  </IMP_FILE_TYPE>
-  <IMP_SPEC_ID>100093209</IMP_SPEC_ID>
-  <KEEP_SQL_LOADER_EXT_TABLE>0</KEEP_SQL_LOADER_EXT_TABLE>
-  <LINE_DELIMITER>
-   <DELIMITER>[44]</DELIMITER>
-   <DESCRIPTION>Comma</DESCRIPTION>
-  </LINE_DELIMITER>
-  <NAME>TestIntegration4</NAME>
-  <STRING_QUOTE>
-   <DELIMITER>[34]</DELIMITER>
-   <DESCRIPTION>Double Quotes</DESCRIPTION>
-  </STRING_QUOTE>
-  <USE_SQL_LOADER>0</USE_SQL_LOADER>
-  <IMP_COLUMNS/>
-  <IMP_ENTITYS/>
-  <PROGRAM_ID>10009255</PROGRAM_ID>
-  <TIME_FORMAT>HH12:MI:SS PM</TIME_FORMAT>
-  <VALIDATE_DATA_MODE_ID>3</VALIDATE_DATA_MODE_ID>
- </IMPORT_ITEM>
- <IMPORT_ITEM>
-  <DATE_FORMAT>DD/MM/YYYY</DATE_FORMAT>
-  <FIELD_DELIMITER>
-   <DELIMITER>[44]</DELIMITER>
-   <DESCRIPTION>Comma</DESCRIPTION>
-  </FIELD_DELIMITER>
-  <IMP_ACTION>3</IMP_ACTION>
-  <IMP_FILE_TYPE>
-   <IMP_FILE_TYPE_ID>1</IMP_FILE_TYPE_ID>
-   <IMP_FILE_TYPE>CSV</IMP_FILE_TYPE>
-  </IMP_FILE_TYPE>
-  <IMP_SPEC_ID>100093210</IMP_SPEC_ID>
-  <KEEP_SQL_LOADER_EXT_TABLE>0</KEEP_SQL_LOADER_EXT_TABLE>
-  <LINE_DELIMITER>
-   <DELIMITER>[44]</DELIMITER>
-   <DESCRIPTION>Comma</DESCRIPTION>
-  </LINE_DELIMITER>
-  <NAME>TestIntegration5</NAME>
-  <STRING_QUOTE>
-   <DELIMITER>[34]</DELIMITER>
-   <DESCRIPTION>Double Quotes</DESCRIPTION>
-  </STRING_QUOTE>
-  <USE_SQL_LOADER>0</USE_SQL_LOADER>
-  <IMP_COLUMNS/>
-  <IMP_ENTITYS/>
-  <PROGRAM_ID>10009255</PROGRAM_ID>
-  <TIME_FORMAT>HH12:MI:SS PM</TIME_FORMAT>
-  <VALIDATE_DATA_MODE_ID>3</VALIDATE_DATA_MODE_ID>
- </IMPORT_ITEM>
-</IMPORT>
+<?xml version="1.0" encoding="UTF-8"?><COMPONENTS author="FCCDB_admin" description="" name="integrations.onevizion.com_BPL_03082021121300.xml" site="https&#x3a;&#x2f;&#x2f;integrations.onevizion.com" ts="" ><RULES>
+ <RULES_ITEM>
+  <IS_ASYNC>0</IS_ASYNC>
+  <IS_ENABLED>1</IS_ENABLED>
+  <RULE>TEST_INTEGRATION_FCCDB_RESULTS</RULE>
+  <RULE_CLASS_ID>1</RULE_CLASS_ID>
+  <RULE_ID>100006563</RULE_ID>
+  <RULE_TYPE>
+   <RULE_TYPE_ID>121</RULE_TYPE_ID>
+   <RULE_TYPE>After Integration Complete</RULE_TYPE>
+   <ID_FIELD>INTEGRATION_RUN_ID</ID_FIELD>
+   <TEMPLATE_SQL>select integration_id as &quot;id&quot;, integration_name as &quot;Integration Name&quot;, integration_id as &quot;Integration ID&quot; from integration</TEMPLATE_SQL>
+   <TYPE_LABELS>
+    <T_LABEL>
+     <APP_LANG_ID>0</APP_LANG_ID>
+     <APP_LABEL_ID>6501</APP_LABEL_ID>
+     <LABEL_TEXT>Integration Complete (After)</LABEL_TEXT>
+    </T_LABEL>
+    <T_LABEL>
+     <APP_LANG_ID>1</APP_LANG_ID>
+     <APP_LABEL_ID>6501</APP_LABEL_ID>
+     <LABEL_TEXT>Integration Complete (After)</LABEL_TEXT>
+    </T_LABEL>
+    <T_LABEL>
+     <APP_LANG_ID>5</APP_LANG_ID>
+     <APP_LABEL_ID>6501</APP_LABEL_ID>
+     <LABEL_TEXT>Integration Complete (After)</LABEL_TEXT>
+    </T_LABEL>
+   </TYPE_LABELS>
+   <DESC_LABELS>
+    <T_LABEL>
+     <APP_LANG_ID>0</APP_LANG_ID>
+     <APP_LABEL_ID>6502</APP_LABEL_ID>
+     <LABEL_TEXT>Executed when an Integration is finished</LABEL_TEXT>
+    </T_LABEL>
+    <T_LABEL>
+     <APP_LANG_ID>1</APP_LANG_ID>
+     <APP_LABEL_ID>6502</APP_LABEL_ID>
+     <LABEL_TEXT>Executed when an Integration is finished</LABEL_TEXT>
+    </T_LABEL>
+    <T_LABEL>
+     <APP_LANG_ID>5</APP_LANG_ID>
+     <APP_LABEL_ID>6502</APP_LABEL_ID>
+     <LABEL_TEXT>Executed when an Integration is finished</LABEL_TEXT>
+    </T_LABEL>
+   </DESC_LABELS>
+  </RULE_TYPE>
+  <SQL_TEXT>declare 
+    v_count number;
+    v_date_constructed_field_id number;
+    v_msg varchar2(500);
+    v_integration_name integration.integration_name%type;
+    
+    c_interval number := 7;
+    c_date_constructed_field_name varchar2(50) := &apos;RA_DATE_CONSTRUCTED&apos;;
+begin
+    select config_field_id
+      into v_date_constructed_field_id
+      from config_field 
+     where config_field_name = &apos;RA_DATE_CONSTRUCTED&apos;;
+    
+    select count(*)
+      into v_count
+      from config_value_date
+     where trunc(ts) between current_date - c_interval and current_date
+       and config_field_id = v_date_constructed_field_id
+       and trunc(value_date) between current_date - c_interval and current_date;
+       
+    select integration_name
+      into v_integration_name
+      from integration
+     where integration_id = :id_num;
+       
+    if v_count = 0 then
+        pkg_test_integration.test_failed(
+            p_integration_name =&gt; v_integration_name,
+            p_error =&gt; &apos;No new Registration records in the last 7 days&apos;,
+            p_integration_run_id =&gt; :integration_run_id);
+    else     
+        pkg_test_integration.test_succeed(v_integration_name, :integration_run_id);
+    end if;
+       
+end;</SQL_TEXT>
+  <WARNING_LABEL/>
+  <RULE_CLASS_PARAM_VALS/>
+  <RULE_HTTPCALLS/>
+  <RULE_HTTPCALL_PARAMS/>
+  <BPD_ITEMS>
+   <T_BPD_ITEM>
+    <ITEM_ID>10000616111</ITEM_ID>
+    <PKEY>100006563</PKEY>
+    <ITEM_TYPE_ID>9</ITEM_TYPE_ID>
+    <ITEM_STATUS_ID>1</ITEM_STATUS_ID>
+    <BLOB_DATA/>
+    <PROGRAM_ID>1002457</PROGRAM_ID>
+    <NAME>TEST_INTEGRATION_FCCDB_RESULTS</NAME>
+    <APP_LABEL/>
+   </T_BPD_ITEM>
+  </BPD_ITEMS>
+  <RULE_GEOCODING/>
+  <RULE_MAP_SNIPPETS/>
+  <PROGRAM_ID>1002457</PROGRAM_ID>
+  <RULE_TYPE_ID>121</RULE_TYPE_ID>
+  <RULE_TOWER_GROUPS/>
+  <COMPONENT_PACKAGES>
+   <T_BPL_COMP_PKG>
+    <COMPONENT_ID>4</COMPONENT_ID>
+    <OBJECT_ID>100006563</OBJECT_ID>
+    <COMPONENTS_PACKAGE_ID>101243</COMPONENTS_PACKAGE_ID>
+    <NAME>FCCDB_TEST</NAME>
+    <PROGRAM_ID>1002457</PROGRAM_ID>
+    <BPD_ITEMS/>
+   </T_BPL_COMP_PKG>
+  </COMPONENT_PACKAGES>
+  <CONFIG_FIELD_IDNUMS/>
+  <TASK_DATE_IDNUMS/>
+  <TASK_IDNUMS/>
+  <TRACKOR_TYPE_IDNUMS/>
+  <RELATION_TYPE_IDNUMS/>
+  <WP_TEMPLATE_IDNUMS/>
+  <WF_TEMPLATE_IDNUMS/>
+  <IMPORT_IDNUMS/>
+  <REPORT_IDNUMS/>
+  <COMPONENT_LABELS/>
+ </RULES_ITEM>
+</RULES>
 </COMPONENTS>
