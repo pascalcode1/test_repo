@@ -1,4 +1,12 @@
 import json
+import subprocess
+import sys
+
+try:
+    subprocess.check_call([sys.executable, '-m', 'pip', 'install', '-r', 'python_dependencies.txt'])
+except Exception as e:
+    raise Exception("test")
+
 
 from hero import *
 
