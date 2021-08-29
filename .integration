@@ -1,3 +1,0 @@
-command = ./test.py
-settings_file_name = settings.json
-default_schedule = 0 0 0/1 * * ?
