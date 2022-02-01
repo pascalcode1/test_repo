@@ -1,6 +1,7 @@
 begin 
-    insert into v_installation_step (installation_step_id, name)
-    values (10, 'test');
+    update blob_data 
+       set FILENAME = 'test.jpg' 
+     where blob_data_id = 10010443155;
     commit;
     
     dbms_output.put_line('');
