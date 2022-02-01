@@ -4,6 +4,5 @@ begin
      where blob_data_id = 10010443155;
     commit;
     
-    dbms_output.put_line('');
+    dbms_output.put_line('test');
 end;
-/
