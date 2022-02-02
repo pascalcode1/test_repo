@@ -18,5 +18,11 @@ begin
     dbms_output.put_line(v_test);
     dbms_output.put_line(v_test);
     dbms_output.put_line(v_test);
+    
+      execute immediate '    create table filter_opt_xt_restriction_xref444 (
+    filter_opt_id number not null,
+    trackor_type_id number not null,
+    program_id number not null
+     )';
 
 end;
