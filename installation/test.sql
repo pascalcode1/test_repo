@@ -14,4 +14,9 @@ begin
      where blob_data_id = 10010443155;
     
     dbms_output.put_line(v_test);
+    dbms_output.put_line(v_test);
+    dbms_output.put_line(v_test);
+    dbms_output.put_line(v_test);
+    dbms_output.put_line(v_test);
+
 end;
