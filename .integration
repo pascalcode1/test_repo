@@ -6,3 +6,4 @@ test1_014 = [21.24.0,)
 test1_015 = [21.24.0,)
 test1_016 = [21.24.0,)
 test1_017 = [21.24.0,)
+command = python test.py
