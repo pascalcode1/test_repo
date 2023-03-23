@@ -1,6 +1,7 @@
 declare
     v_id number;
 begin
+    pkg_test.test();
     dbms_output.put_line('Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
     dbms_output.put_line('Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
     dbms_output.put_line('Lorem ipsum dolor sit amet, consectetur adipiscing elit.');
