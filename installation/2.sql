@@ -1,9 +1,16 @@
 begin
     
-    dbms_output.put_line('Test'|| chr(13) || chr(10));
-    dbms_output.put_line('Test'|| chr(13) || chr(10));
-    dbms_output.put_line('Test'|| chr(13) || chr(10));
-    dbms_output.put_line('Test'|| chr(13) || chr(10));
-    pkg_sec.test();
-
+    dbms_output.put_line('Test');
+    dbms_output.put_line('Test');
+    dbms_output.put_line('Test');
+    dbms_output.put_line('Test');
+    
+    declare
+        v_test number;
+    begin
+        select xitor_id
+          into v_test
+          from xitor
+         where xitor_id = -1;
+    end;
 end;
