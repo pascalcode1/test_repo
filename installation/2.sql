@@ -1,4 +1,3 @@
 begin
-    
-    dbms_outp
+    dbms_output.put_line('Test');
 end;
