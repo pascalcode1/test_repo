@@ -19,6 +19,9 @@ Nunc enim justo, elementum sit amet sodales sed, gravida at tellus.
 
 ## Usage
 
+![alt text](https://github.com/glebowadim/test_repo/blob/master/icon.png?raw=true)
+
+
 Donec aliquet placerat faucibus: 
 - Vivamus scelerisque vulputate tempus
 - Proin elementum convallis arcu
