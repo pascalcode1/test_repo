@@ -8,9 +8,9 @@ exception
                              object_name,
                              replace(error_msg, chr(13) || chr(10), '') as error_msg
                         from objref_validation_error) loop
-            dbms_output.put_line('objref_validation_error_id:' || v_rec.objref_validation_error_id
-                || chr(13) || chr(10) || 'object_name:' || v_rec.object_name
-                || chr(13) || chr(10) || 'error_msg:' || v_rec.error_msg);
+            dbms_output.put_line('objref_validation_error_id: ' || v_rec.objref_validation_error_id);
+            dbms_output.put_line('object_name: ' || v_rec.object_name);
+            dbms_output.put_line('error_msg: ' || v_rec.error_msg);
         end loop;
         raise;
 end;
