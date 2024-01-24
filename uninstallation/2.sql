@@ -1,3 +1,3 @@
 begin
-    dbms_output.put_line('Object references were rebuilt');
+    dbms_output.put_line('Test');
 end;
