@@ -1,25 +1,44 @@
 [{
     "name" : "name1",
-    "typeId": 0,
+    "typeId": 90,
     "value": "0",
-    "paramSql" : "",
+    "paramSql" : "select level as cnt from dual connect by level < 11",
     "description" : "testDescription",
     "isReadOnly" : false,
     "isHidden" : false
 }, {
-    "name" : "name2",
-    "typeId": 1,
-    "value": "0",
+    "name" : "name3",
+    "typeId": 150,
+    "value": "",
+    "paramSql" : "select un, user_id as \"valueField\" 
+                   from users
+                  order by upper(un)",
+    "description" : "testDescription",
+    "isReadOnly" : false,
+    "isHidden" : false
+},
+    {
+    "name" : "name4",
+    "typeId": 160,
+    "value": "",
     "paramSql" : "",
     "description" : "testDescription2",
-    "isReadOnly" : true,
+    "isReadOnly" : false,
     "isHidden" : false
 }, {
-    "name" : "name3",
-    "typeId": 3,
-    "value": "0",
+    "name" : "name5",
+    "typeId": 170,
+    "value": "",
     "paramSql" : "",
     "description" : "testDescription2",
-    "isReadOnly" : true,
+    "isReadOnly" : false,
     "isHidden" : false
+}, {
+    "name" : "name300",
+    "typeId": 3,
+    "value": "100",
+    "paramSql" : "",
+    "description" : "testDescription2",
+    "isReadOnly" : false,
+    "isHidden" : true
 }]
