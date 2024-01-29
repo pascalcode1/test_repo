@@ -10,7 +10,7 @@
     "name" : "name3",
     "typeId": 150,
     "value": "",
-    "paramSql" : "select un, user_id as "valueField" 
+    "paramSql" : "select un, user_id as \\"valueField\\" 
                    from users
                   order by upper(un)",
     "description" : "testDescription",
