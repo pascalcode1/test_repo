@@ -31,8 +31,16 @@
     "isReadOnly" : false,
     "isHidden" : false
 }, {
+    "name" : "name6",
+    "typeId": 8,
+    "value": "",
+    "paramSql" : "",
+    "description" : "testDescription2",
+    "isReadOnly" : false,
+    "isHidden" : false
+}, {
     "name" : "name300",
-    "typeId": 3,
+    "typeId": 0,
     "value": "100",
     "paramSql" : "",
     "description" : "testDescription2",
