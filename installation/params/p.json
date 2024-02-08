@@ -1,7 +1,7 @@
 [{
     "name" : "TrackorTypeID",
     "typeId": 90,
-    "value": "0",
+    "value": "",
     "paramSql" : "select xitor_type_id from xitor_type where is_static_definition = 0",
     "description" : "Trackor Type ID for the Trackor Selector",
     "isReadOnly" : true,
