@@ -1,49 +1,9 @@
 [{
-    "name" : "name1",
+    "name" : "TrackorTypeID",
     "typeId": 90,
     "value": "0",
-    "paramSql" : "select level as cnt from dual connect by level < 11",
-    "description" : "testDescription",
-    "isReadOnly" : false,
+    "paramSql" : "select xitor_type_id from xitor_type where is_static_definition = 0",
+    "description" : "Trackor Type ID for the Trackor Selector",
+    "isReadOnly" : true,
     "isHidden" : false
-}, {
-    "name" : "name3",
-    "typeId": 150,
-    "value": "",
-    "paramSql" : "select un, user_id as \"valueField\" from users order by upper(un)",
-    "description" : "testDescription",
-    "isReadOnly" : false,
-    "isHidden" : false
-}, {
-    "name" : "name4",
-    "typeId": 160,
-    "value": "",
-    "paramSql" : "",
-    "description" : "testDescription2",
-    "isReadOnly" : false,
-    "isHidden" : false
-}, {
-    "name" : "name5",
-    "typeId": 170,
-    "value": "",
-    "paramSql" : "",
-    "description" : "testDescription2",
-    "isReadOnly" : false,
-    "isHidden" : false
-}, {
-    "name" : "name6",
-    "typeId": 8,
-    "value": "",
-    "paramSql" : "",
-    "description" : "testDescription2",
-    "isReadOnly" : false,
-    "isHidden" : false
-}, {
-    "name" : "name300",
-    "typeId": 0,
-    "value": "100",
-    "paramSql" : "",
-    "description" : "testDescription2",
-    "isReadOnly" : false,
-    "isHidden" : true
 }]
