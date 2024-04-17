@@ -36,3 +36,9 @@ settings.json
 }
 ```
 
+![image](img/http_call_rule.png)
+
+![](img/http_call_rule.png)
+
+
+
