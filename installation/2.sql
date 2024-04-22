@@ -1,10 +1,3 @@
-declare
-    v_module_name varchar(100);
 begin
-    select module_name
-    into v_module_name
-    from module
-    where module_id = :p_module_id;
-
-    dbms_output.put_line('name: ' || v_module_name);
+    dbms_output.put_line('Id of current module: ' || :p_module_id);
 end;
