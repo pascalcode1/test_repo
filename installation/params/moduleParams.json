@@ -1,5 +1,5 @@
 [{
-  "name" : "uninstallationParam1",
+  "name" : "installationParam1",
   "typeId": 0,
   "value": "",
   "paramSql" : "",
@@ -7,7 +7,7 @@
   "isReadOnly" : false,
   "isHidden" : false
 }, {
-  "name" : "uninstallationParam2",
+  "name" : "installationParam2",
   "typeId": 1,
   "value": "0",
   "paramSql" : "",
@@ -15,7 +15,7 @@
   "isReadOnly" : true,
   "isHidden" : false
 }, {
-  "name" : "uninstallationParam3",
+  "name" : "installationParam3",
   "typeId": 3,
   "value": "0",
   "paramSql" : "",
