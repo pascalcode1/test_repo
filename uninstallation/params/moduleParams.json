@@ -1,23 +1,23 @@
 [{
-  "name" : "uninstallationParam1",
+  "name" : "UNinstallationParam1",
   "typeId": 0,
-  "value": "",
+  "value": "test",
   "paramSql" : "",
   "description" : "testDescription",
   "isReadOnly" : false,
   "isHidden" : false
 }, {
-  "name" : "uninstallationParam2",
+  "name" : "UNinstallationParam2",
   "typeId": 1,
-  "value": "0",
+  "value": "100",
   "paramSql" : "",
   "description" : "testDescription2",
   "isReadOnly" : true,
   "isHidden" : false
 }, {
-  "name" : "uninstallationParam3",
+  "name" : "UNinstallationParam3",
   "typeId": 3,
-  "value": "0",
+  "value": "1",
   "paramSql" : "",
   "description" : "testDescription3",
   "isReadOnly" : true,
