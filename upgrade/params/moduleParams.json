@@ -1,0 +1,9 @@
+[{
+  "name" : "upgradeParam1",
+  "typeId": 0,
+  "value": "upgrade test param",
+  "paramSql" : "",
+  "description" : "testDescription",
+  "isReadOnly" : false,
+  "isHidden" : false
+}]
