@@ -1,0 +1,25 @@
+[{
+  "name" : "installationParam1",
+  "typeId": 0,
+  "value": "overwriting test",
+  "paramSql" : "",
+  "description" : "testDescription",
+  "isReadOnly" : false,
+  "isHidden" : false
+}, {
+  "name" : "installationParam2",
+  "typeId": 1,
+  "value": "0",
+  "paramSql" : "",
+  "description" : "testDescription2",
+  "isReadOnly" : true,
+  "isHidden" : false
+}, {
+  "name" : "installationParam3",
+  "typeId": 3,
+  "value": "0",
+  "paramSql" : "",
+  "description" : "testDescription3",
+  "isReadOnly" : true,
+  "isHidden" : false
+}]
