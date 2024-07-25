@@ -1,21 +1,21 @@
 [{
-  "name" : "UNinstallationParam1",
+  "name" : "upgradeParam1",
   "typeId": 0,
-  "value": "test",
+  "value": "tipa upgrade",
   "paramSql" : "",
   "description" : "testDescription",
   "isReadOnly" : false,
   "isHidden" : false
 }, {
-  "name" : "UNinstallationParam2",
+  "name" : "upgradeParam2",
   "typeId": 1,
-  "value": "100",
+  "value": "420",
   "paramSql" : "",
   "description" : "testDescription2",
   "isReadOnly" : true,
   "isHidden" : false
 }, {
-  "name" : "UNinstallationParam3",
+  "name" : "upgradeParam3",
   "typeId": 3,
   "value": "1",
   "paramSql" : "",
