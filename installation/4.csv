@@ -1,18 +1,5 @@
-ID,TEXT
-A1,A
-B1,B
-C1,C
-D1,D
-E1,E
-F1,F
-G1,G
-H1,H
-I1,I
-J1,J
-K1,K
-L1,L
-M1,M
-N1,N
-O1,O
-P1,P
-Q1,Q
+Import ID,Import Name,Line Delimiter,Field Delimiter,String Quote,Date Format,Description
+IMP_SPEC_ID,NAME,LD_DESC,FD_DESC,SQ_DESC,DATE_FORMAT,I_DESC
+1000918841,RUN_IMPORT1,<new line>,Comma,Double Quotes,MM/DD/YYYY,
+1000918842,RUN_IMPORT2,<new line>,Comma,Double Quotes,MM/DD/YYYY,
+1000918843,RUN_IMPORT3,<new line>,Comma,Double Quotes,MM/DD/YYYY,
