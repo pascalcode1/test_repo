@@ -1,7 +1,7 @@
 [{
   "name" : "TrackorTypeName",
   "typeId": 0,
-  "value": "",
+  "value": "ADD_EDIT_DEL",
   "paramSql" : "",
   "description" : "The name of Trackor Type",
   "isReadOnly" : false,
