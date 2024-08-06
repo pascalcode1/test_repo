@@ -1,2 +1,2 @@
 Label_ID,English,Russian,ARMS Internal,selenium,Deutsch,Label IDs with Text
-219,{TrackorTypeName},Удолить,Delete,Delete,Delete,Delete
+219,{TrackorTypeName},{param1},Delete,Delete,Delete,Delete
