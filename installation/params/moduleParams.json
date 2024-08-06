@@ -9,6 +9,14 @@
 },{
   "name" : "param1",
   "typeId": 0,
+  "value": "test_field",
+  "paramSql" : "",
+  "description" : "тест",
+  "isReadOnly" : false,
+  "isHidden" : false
+},{
+  "name" : "param2",
+  "typeId": 0,
   "value": "тест",
   "paramSql" : "",
   "description" : "тест",
