@@ -7,19 +7,59 @@
   "isReadOnly" : false,
   "isHidden" : false
 },{
+  "name" : "param0",
+  "typeId": 0,
+  "value": "219",
+  "paramSql" : "",
+  "description" : "An ID of the system label",
+  "isReadOnly" : false,
+  "isHidden" : false
+},{
   "name" : "param1",
   "typeId": 0,
-  "value": "test_field",
+  "value": "Delete",
   "paramSql" : "",
-  "description" : "тест",
+  "description" : "English",
   "isReadOnly" : false,
   "isHidden" : false
 },{
   "name" : "param2",
   "typeId": 0,
-  "value": "тест",
+  "value": "Удалить",
   "paramSql" : "",
-  "description" : "тест",
+  "description" : "Russian",
+  "isReadOnly" : false,
+  "isHidden" : false
+},{
+  "name" : "param3",
+  "typeId": 0,
+  "value": "Destroy",
+  "paramSql" : "",
+  "description" : "ARMS Internal",
+  "isReadOnly" : false,
+  "isHidden" : false
+},{
+  "name" : "param4",
+  "typeId": 0,
+  "value": "Kill",
+  "paramSql" : "",
+  "description" : "selenium",
+  "isReadOnly" : false,
+  "isHidden" : false
+},{
+  "name" : "param5",
+  "typeId": 0,
+  "value": "Löschen",
+  "paramSql" : "",
+  "description" : "Deutsch",
+  "isReadOnly" : false,
+  "isHidden" : false
+},{
+  "name" : "param6",
+  "typeId": 0,
+  "value": "D313T3",
+  "paramSql" : "",
+  "description" : "Label IDs with Text",
   "isReadOnly" : false,
   "isHidden" : false
 }]
