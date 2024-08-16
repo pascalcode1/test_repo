@@ -1,9 +1,65 @@
 [{
+  "name" : "text",
+  "typeId": 0,
+  "value": "texttext",
+  "paramSql" : "",
+  "description" : "some Text",
+  "isReadOnly" : false,
+  "isHidden" : false
+},{
+  "name" : "number",
+  "typeId": 1,
+  "value": "11",
+  "paramSql" : "",
+  "description" : "some Number",
+  "isReadOnly" : false,
+  "isHidden" : false
+},{
+  "name" : "yesno",
+  "typeId": 3,
+  "value": "0",
+  "paramSql" : "",
+  "description" : "some Yes/No",
+  "isReadOnly" : false,
+  "isHidden" : false
+},{
   "name" : "password",
   "typeId": 8,
-  "value": "",
+  "value": "psswrd",
   "paramSql" : "",
-  "description" : "some password",
+  "description" : "some Password",
+  "isReadOnly" : false,
+  "isHidden" : false
+},{
+  "name" : "sqlqueryselector",
+  "typeId": 90,
+  "value": "select 1 from dual",
+  "paramSql" : "",
+  "description" : "some Sql Query Selector",
+  "isReadOnly" : false,
+  "isHidden" : false
+},{
+  "name" : "userselector",
+  "typeId": 150,
+  "value": "100095147",
+  "paramSql" : "",
+  "description" : "some User Selector",
+  "isReadOnly" : false,
+  "isHidden" : false
+},{
+  "name" : "latitude",
+  "typeId": 160,
+  "value": "10",
+  "paramSql" : "",
+  "description" : "some Latitude",
+  "isReadOnly" : false,
+  "isHidden" : false
+},{
+  "name" : "longitude",
+  "typeId": 170,
+  "value": "50",
+  "paramSql" : "",
+  "description" : "some Longitude",
   "isReadOnly" : false,
   "isHidden" : false
 }]
