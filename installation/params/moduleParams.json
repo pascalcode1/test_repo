@@ -5,7 +5,8 @@
   "paramSql" : "",
   "description" : "some Text",
   "isReadOnly" : false,
-  "isHidden" : false
+  "isHidden" : false,
+  "orderNumber" : 7
 },{
   "name" : "number",
   "typeId": 1,
@@ -13,7 +14,8 @@
   "paramSql" : "",
   "description" : "some Number",
   "isReadOnly" : false,
-  "isHidden" : false
+  "isHidden" : false,
+  "orderNumber" : 1
 },{
   "name" : "yesno",
   "typeId": 3,
@@ -21,7 +23,8 @@
   "paramSql" : "",
   "description" : "some Yes/No",
   "isReadOnly" : false,
-  "isHidden" : false
+  "isHidden" : false,
+  "orderNumber" : 8
 },{
   "name" : "password",
   "typeId": 8,
@@ -29,7 +32,8 @@
   "paramSql" : "",
   "description" : "some Password",
   "isReadOnly" : false,
-  "isHidden" : false
+  "isHidden" : false,
+  "orderNumber" : 3
 },{
   "name" : "sqlqueryselector",
   "typeId": 90,
@@ -37,7 +41,8 @@
   "paramSql" : "",
   "description" : "some Sql Query Selector",
   "isReadOnly" : false,
-  "isHidden" : false
+  "isHidden" : false,
+  "orderNumber" : 2
 },{
   "name" : "userselector",
   "typeId": 150,
@@ -45,7 +50,8 @@
   "paramSql" : "",
   "description" : "some User Selector",
   "isReadOnly" : false,
-  "isHidden" : false
+  "isHidden" : false,
+  "orderNumber" : 6
 },{
   "name" : "latitude",
   "typeId": 160,
@@ -53,7 +59,8 @@
   "paramSql" : "",
   "description" : "some Latitude",
   "isReadOnly" : false,
-  "isHidden" : false
+  "isHidden" : false,
+  "orderNumber" : 4
 },{
   "name" : "longitude",
   "typeId": 170,
@@ -61,5 +68,6 @@
   "paramSql" : "",
   "description" : "some Longitude",
   "isReadOnly" : false,
-  "isHidden" : false
+  "isHidden" : false,
+  "orderNumber" : 5
 }]
