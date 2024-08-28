@@ -1,69 +1,25 @@
 [{
-  "name" : "text",
+  "name" : "trackorField",
   "typeId": 0,
-  "value": "texttext",
+  "value": "",
   "paramSql" : "",
-  "description" : "some Text",
+  "description" : "Trackor Field Name",
   "isReadOnly" : false,
-  "isHidden" : false,
-  "orderNumber" : 1
+  "isHidden" : false
 },{
-  "name" : "number",
-  "typeId": 1,
-  "value": "11",
+  "name" : "description",
+  "typeId": 0,
+  "value": "",
   "paramSql" : "",
-  "description" : "some Number",
+  "description" : "Description",
   "isReadOnly" : false,
-  "isHidden" : false,
-  "orderNumber" : 3
+  "isHidden" : false
 },{
-  "name" : "yesno",
-  "typeId": 3,
+  "name" : "trackorType",
+  "typeId": 0,
   "value": "0",
   "paramSql" : "",
-  "description" : "some Yes/No",
-  "isReadOnly" : false,
-  "isHidden" : false,
-  "orderNumber" : 4
-},{
-  "name" : "password",
-  "typeId": 8,
-  "value": "psswrd",
-  "paramSql" : "",
-  "description" : "some Password",
-  "isReadOnly" : false,
-  "isHidden" : false,
-  "orderNumber" : 2
-},{
-  "name" : "sqlqueryselector",
-  "typeId": 90,
-  "value": "select 1 from dual",
-  "paramSql" : "",
-  "description" : "some Sql Query Selector",
-  "isReadOnly" : false,
-  "isHidden" : false
-},{
-  "name" : "userselector",
-  "typeId": 150,
-  "value": "100095147",
-  "paramSql" : "",
-  "description" : "some User Selector",
-  "isReadOnly" : false,
-  "isHidden" : false
-},{
-  "name" : "latitude",
-  "typeId": 160,
-  "value": "10",
-  "paramSql" : "",
-  "description" : "some Latitude",
-  "isReadOnly" : false,
-  "isHidden" : false
-},{
-  "name" : "longitude",
-  "typeId": 170,
-  "value": "50",
-  "paramSql" : "",
-  "description" : "some Longitude",
+  "description" : "Trackor Type Name",
   "isReadOnly" : false,
   "isHidden" : false
 }]
