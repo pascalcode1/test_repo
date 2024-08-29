@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?><COMPONENTS author="ACITM - Test_admin" description="" name="test.onevizion.com_BPL_05102024194619.xml" site="http&#x3a;&#x2f;&#x2f;dev2.vqs.net&#x3a;8080" ts="" ><DB_PACKAGES>
+ <DB_PACKAGES_ITEM>
+  <DB_PKG_NAME>VHMACITM_PKG</DB_PKG_NAME>
+  <PKG_NAME>VHMACITM_PKG</PKG_NAME>
+  <DB_PACKAGE_SPEC>CREATE OR REPLACE EDITIONABLE PACKAGE &quot;VHMACITM_PKG&quot; as
+
+    c_flag constant varchar2(4000) := &apos;ACT_ACTION_COMMENTS to chat &apos;;    
+
+    procedure action_comment_history(p_xitor_id in xitor.xitor_id%type);
+    procedure action_comment_to_chat(p_xitor_id in xitor.xitor_id%type);
+    procedure chat_to_action_comment(p_chat_message_id in chat_message.chat_message_id%type);
+    procedure set_action_due(p_xitor_id in xitor.xitor_id%type);
+    procedure set_age_of_action_item(p_xitor_id in xitor.xitor_id%type);
+    procedure set_age_of_last_update(p_xitor_id in xitor.xitor_id%type);
+    procedure set_days_until_due(p_xitor_id in xitor.xitor_id%type);
+    procedure set_time_last_update(p_xitor_id in xitor.xitor_id%type);
+    procedure send_action_item_notification;
+    
+end;</DB_PACKAGE_SPEC>
+  <DB_PACKAGE_BODY>CREATE OR REPLACE EDITIONABLE PACKAGE BODY &quot;VHMACITM_PKG&quot; as
+
+    procedure action_comment_history(p_xitor_id in xitor.xitor_id%type) as
+        v_comment config_value_char.value_clob%type;
+    begin
+        v_comment := util.getvalmemobyid(p_xitor_id, id.vhmacitm_action_items.cf.vhmacitm_action_comments);
+        if v_comment is null then
+            return; 
+        end if;
+        util.setvalmemobyid(p_xitor_id, id.vhmacitm_action_items.cf.vhmacitm_action_comment_history, util.getcurrentuser() || &apos; &apos; || to_char(current_date, &apos;mm/dd/yyyy hh12:miAM&apos;) || chr(13) || v_comment || chr(13) || util.getvalstrbyid(p_xitor_id, id.vhmacitm_action_items.cf.vhmacitm_action_comment_history));
+        util.setvalmemobyid(p_xitor_id, id.vhmacitm_action_items.cf.vhmacitm_action_comments, null);
+    end action_comment_history;
+    
+    procedure action_comment_to_chat(p_xitor_id in xitor.xitor_id%type) as
+        v_chat_msg_id chat_message.chat_message_id%type;
+        v_chat_id chat.chat_id%type;
+        v_ret_str varchar2(4000);
+    begin
+    
+        if util.getvalstrbyid(p_xitor_id, id.vhmacitm_action_items.cf.vhmacitm_action_comments) is null 
+        or util.isflagset(c_flag || p_xitor_id) = 1
+        then
+            util.clearflag(c_flag || p_xitor_id);
+            return;
+        else
+            util.setflag(c_flag || p_xitor_id);
+        end if;
+
+        v_chat_id := util.gettrackorchatid(p_xitor_id);
+        if v_chat_id is null then
+            v_chat_id := pkg_chat.create_trackor_chat(p_xitor_id);
+        end if;
+    
+        v_chat_msg_id := pkg_chat.create_msg_temp(v_chat_id, pkg_sec.get_cu(), util.getvalstrbyid(p_xitor_id, id.vhmacitm_action_items.cf.vhmacitm_action_comments));
+        pkg_chat.finalize_msg_and_notify(v_chat_msg_id, v_ret_str);
+        
+    end action_comment_to_chat;
+    
+    procedure chat_to_action_comment(p_chat_message_id in chat_message.chat_message_id%type) as
+        v_xitor_id xitor.xitor_id%type;
+        v_text chat_message.text%type;
+    begin
+        
+        select c.trackor_id, 
+               cm.text
+          into v_xitor_id, 
+               v_text
+          from chat c
+          join chat_message cm on cm.chat_id = c.chat_id
+         where cm.chat_message_id = p_chat_message_id;
+
+        if util.isflagset(c_flag || v_xitor_id) = 1 then
+            util.clearflag(c_flag || v_xitor_id);
+            return;
+        else
+            util.setflag(c_flag || v_xitor_id);
+        end if;
+    
+        util.setvalcharbyid(v_xitor_id, id.vhmacitm_action_items.cf.vhmacitm_action_comments, v_text);
+        
+    end chat_to_action_comment;
+    
+    procedure set_action_due(p_xitor_id in xitor.xitor_id%type) as
+        v_act_due_date config_value_date.value_date%type;
+    begin
+        
+        v_act_due_date := util.getvaldatebyid(p_xitor_id, id.vhmacitm_action_items.cf.vhmacitm_due__forecast_date);
+        if nvl(util.getvalnumbyid(p_xitor_id, id.vhmacitm_action_items.cf.vhmacitm_action_status), -1) &lt;&gt; id.vt.v_vhmacitm_action_status.opened then
+            util.setvalnumbyid(p_xitor_id, id.vhmacitm_action_items.cf.vhmacitm_action_due, null, 1);
+            return;
+        end if;
+
+        if v_act_due_date is null then
+            util.setvalnumbyid(p_xitor_id, id.vhmacitm_action_items.cf.vhmacitm_action_due, null, 1);
+        elsif v_act_due_date - current_date &lt; 0 then
+            util.setvalnumbyid(p_xitor_id, id.vhmacitm_action_items.cf.vhmacitm_action_due, id.vt.v_vhmacitm_acton_due.past_due, 1);
+        elsif v_act_due_date - current_date &lt;= 7 then
+            util.setvalnumbyid(p_xitor_id, id.vhmacitm_action_items.cf.vhmacitm_action_due, id.vt.v_vhmacitm_acton_due.within_seven_days, 1);
+        elsif v_act_due_date - current_date &lt;= 30 then
+            util.setvalnumbyid(p_xitor_id, id.vhmacitm_action_items.cf.vhmacitm_action_due, id.vt.v_vhmacitm_acton_due.within_thirty_days, 1);
+        elsif v_act_due_date - current_date &lt;= 60 then
+            util.setvalnumbyid(p_xitor_id, id.vhmacitm_action_items.cf.vhmacitm_action_due, id.vt.v_vhmacitm_acton_due.within_sixty_days, 1);
+        elsif v_act_due_date - current_date &lt;= 90 then
+            util.setvalnumbyid(p_xitor_id, id.vhmacitm_action_items.cf.vhmacitm_action_due, id.vt.v_vhmacitm_acton_due.within_ninety_days, 1);
+        else
+            util.setvalnumbyid(p_xitor_id, id.vhmacitm_action_items.cf.vhmacitm_action_due, id.vt.v_vhmacitm_acton_due.over_ninety_days, 1);
+        end if;
+        
+    end set_action_due;
+    
+    procedure set_age_of_action_item(p_xitor_id in xitor.xitor_id%type) as
+    begin
+    
+        for rec in (
+            select x.xitor_id
+              from xitor x
+              join config_value_char cvc on
+                  cvc.key_value = x.xitor_id
+                  and cvc.config_field_id = id.vhmacitm_action_items.cf.vhmacitm_age_of_action_item
+                  and cvc.value_char is not null
+              join config_value_number cvn on
+                  cvn.key_value = x.xitor_id
+                  and cvn.config_field_id = id.vhmacitm_action_items.cf.vhmacitm_action_status
+                  and cvn.value_number &lt;&gt; id.vt.v_vhmacitm_action_status.opened
+             where x.xitor_type_id = id.vhmacitm_action_items.tt
+               and x.xitor_id = p_xitor_id
+        ) loop
+            util.setvalcharbyid(rec.xitor_id, id.vhmacitm_action_items.cf.vhmacitm_age_of_action_item, null);
+        end loop;
+    
+        for rec in (
+            select x.xitor_id,
+                   cvd.value_date
+              from xitor x
+              join config_value_date cvd on
+                  cvd.key_value = x.xitor_id
+                  and cvd.config_field_id = id.vhmacitm_action_items.cf.vhmacitm_action_created_date
+                  and cvd.value_date is not null
+              join config_value_number cvn on
+                  cvn.key_value = x.xitor_id
+                  and cvn.config_field_id = id.vhmacitm_action_items.cf.vhmacitm_action_status
+                  and cvn.value_number = id.vt.v_vhmacitm_action_status.opened
+             where x.xitor_type_id = id.vhmacitm_action_items.tt
+               and x.xitor_id = p_xitor_id
+        ) loop
+            if round((current_date - rec.value_date) * 24 * 60) &gt;= 1440 then
+                util.setvalcharbyid(rec.xitor_id, id.vhmacitm_action_items.cf.vhmacitm_age_of_action_item, to_char(round((current_date - rec.value_date))) || &apos; Days&apos;);
+            elsif round((current_date - rec.value_date) * 24 * 60) &gt;= 60 then
+                util.setvalcharbyid(rec.xitor_id, id.vhmacitm_action_items.cf.vhmacitm_age_of_action_item, to_char(round((current_date - rec.value_date) * 24)) || &apos; Hours&apos;);
+            else
+                util.setvalcharbyid(rec.xitor_id, id.vhmacitm_action_items.cf.vhmacitm_age_of_action_item, to_char(round((current_date - rec.value_date) * 24 * 60)) || &apos; Minutes&apos;);
+            end if;
+        end loop;
+        
+    end set_age_of_action_item;
+    
+    procedure set_age_of_last_update(p_xitor_id in xitor.xitor_id%type) as
+    begin
+    
+        for rec in (
+            select x.xitor_id
+              from xitor x
+              join config_value_char cvc on
+                  cvc.key_value = x.xitor_id
+                  and cvc.config_field_id = id.vhmacitm_action_items.cf.vhmacitm_age_of_last_update
+                  and cvc.value_char is not null
+              join config_value_number cvn on
+                  cvn.key_value = x.xitor_id
+                  and cvn.config_field_id = id.vhmacitm_action_items.cf.vhmacitm_action_status
+                  and cvn.value_number &lt;&gt; id.vt.v_vhmacitm_action_status.opened
+             where x.xitor_type_id = id.vhmacitm_action_items.tt
+               and x.xitor_id = p_xitor_id
+        ) loop
+            util.setvalcharbyid(rec.xitor_id, id.vhmacitm_action_items.cf.vhmacitm_age_of_last_update, null);
+        end loop;
+    
+        for rec in (
+            select x.xitor_id,
+                   cvd.value_date
+              from xitor x
+              join config_value_date cvd on
+                  cvd.key_value = x.xitor_id
+                  and cvd.config_field_id = id.vhmacitm_action_items.cf.vhmacitm_time_last_update
+                  and cvd.value_date is not null
+              join config_value_number cvn on
+                  cvn.key_value = x.xitor_id
+                  and cvn.config_field_id = id.vhmacitm_action_items.cf.vhmacitm_action_status
+                  and cvn.value_number = id.vt.v_vhmacitm_action_status.opened
+             where x.xitor_type_id = id.vhmacitm_action_items.tt
+               and x.xitor_id = p_xitor_id
+        ) loop
+            if round((current_date - rec.value_date) * 24 * 60) &gt;= 1440 then
+                util.setvalcharbyid(rec.xitor_id, id.vhmacitm_action_items.cf.vhmacitm_age_of_last_update, to_char(round((current_date - rec.value_date))) || &apos; Days&apos;);    
+            elsif round((current_date - rec.value_date) * 24 * 60) &gt;= 60 then
+                util.setvalcharbyid(rec.xitor_id, id.vhmacitm_action_items.cf.vhmacitm_age_of_last_update, to_char(round((current_date - rec.value_date) * 24)) || &apos; Hours&apos;);
+            else
+                util.setvalcharbyid(rec.xitor_id, id.vhmacitm_action_items.cf.vhmacitm_age_of_last_update, to_char(round((current_date - rec.value_date) * 24 * 60)) || &apos; Minutes&apos;);
+            end if;
+        end loop;
+        
+    end set_age_of_last_update;
+    
+    procedure set_days_until_due(p_xitor_id in xitor.xitor_id%type) as
+        v_date config_value_date.value_date%type;
+    begin
+        v_date := util.getvaldatebyid(p_xitor_id, id.vhmacitm_action_items.cf.vhmacitm_due_date);
+        if nvl(util.getvalnumbyid(p_xitor_id, id.vhmacitm_action_items.cf.vhmacitm_action_status), -1) &lt;&gt; id.vt.v_vhmacitm_action_status.opened then
+            util.setvalnumbyid(p_xitor_id, id.vhmacitm_action_items.cf.vhmacitm_days_until_due, 0);
+        elsif v_date is null then
+            util.setvalnumbyid(p_xitor_id, id.vhmacitm_action_items.cf.vhmacitm_days_until_due, null);
+        else
+            util.setvalnumbyid(p_xitor_id, id.vhmacitm_action_items.cf.vhmacitm_days_until_due, round(v_date - current_date));
+        end if;
+    end set_days_until_due;
+    
+    procedure set_time_last_update(p_xitor_id in xitor.xitor_id%type) as
+        v_date config_value_date.value_date%type;
+    begin
+        select max(ts)
+          into v_date
+          from audit_log_cflite
+         where column_name = to_char(id.vhmacitm_action_items.cf.vhmacitm_action_comment_history)
+           and pk = p_xitor_id;   
+        util.setvaldatebyid(p_xitor_id, id.vhmacitm_action_items.cf.vhmacitm_time_last_update, v_date);
+    exception when no_data_found then
+        util.setvaldatebyid(p_xitor_id, id.vhmacitm_action_items.cf.vhmacitm_time_last_update, null);
+    end set_time_last_update;
+    
+    procedure send_action_item_notification as
+        v_{ProjectTrackorType}_id xitor.xitor_id%type;
+        v_{ProjectTrackorType}_key xitor.xitor_key%type;
+        v_email users.email%type;
+    begin
+
+        for rec in (
+            select x.xitor_id, 
+                   x.xitor_key, 
+                   u.email
+              from xitor x
+              join config_value_number cvn1 on 
+                  cvn1.key_value = x.xitor_id 
+                  and cvn1.config_field_id = id.vhmacitm_action_items.cf.vhmacitm_enable_notifications 
+                  and cvn1.value_number = 1
+              join config_value_number cvn2 on 
+                  cvn2.key_value = x.xitor_id
+                  and cvn2.config_field_id = id.vhmacitm_action_items.cf.vhmacitm_action_status
+                  and cvn2.value_number = id.vt.v_vhmacitm_action_status.opened
+              join config_value_number cvn3 on 
+                  cvn3.key_value = x.xitor_id 
+                  and cvn3.config_field_id = id.vhmacitm_action_items.cf.vhmacitm_action_assigned_to 
+                  and cvn3.value_number is not null
+              join users u on u.xitor_id = cvn3.value_number
+              join config_value_date cvd on 
+                  cvd.key_value = x.xitor_id 
+                  and cvd.config_field_id = id.vhmacitm_action_items.cf.vhmacitm_future_notification_date 
+                  and cvd.value_date = current_date
+             where x.xitor_type_id = id.vhmacitm_action_items.tt
+        ) loop
+        
+            v_{ProjectTrackorType}_id := util.getparentbyid(rec.xitor_id, id.{ProjectTrackorType}.tt);
+            if v_{ProjectTrackorType}_id is not null then
+                v_{ProjectTrackorType}_key := util.getvalstrbyid(v_{ProjectTrackorType}_id, id.{ProjectTrackorType}.cf.xitor_key);
+            end if;
+
+            select listagg(u.email, &apos;, &apos; on overflow truncate) within group (order by u.email)
+              into v_email
+              from config_value_mult cvm
+              join users u on u.xitor_id = cvm.value_number
+             where cvm.key_value = rec.xitor_id
+               and cvm.config_field_id = id.vhmacitm_action_items.cf.vhmacitm_action_followers;
+            if v_email is null then
+                v_email := rec.email;
+            else
+                v_email := rec.email || &apos;, &apos; || v_email;
+            end if;
+            
+            util.sendmail(
+                util.formatlabel(-7498403, pkg_label.list_label_params()),
+                util.formatlabel(-7498402, pkg_label.list_label_params(&apos;trackor_link&apos; =&gt; pkg_rpt.get_trackor_edit_url(rec.xitor_id), &apos;xitor_key&apos; =&gt; rec.xitor_key, &apos;v_{ProjectTrackorType}_key&apos; =&gt; v_{ProjectTrackorType}_key, &apos;act_action_item_name&apos; =&gt; util.getvalstrbyid(rec.xitor_id, id.vhmacitm_action_items.cf.vhmacitm_action_item_name), &apos;act_action_status&apos; =&gt; util.getvalstrbyid(rec.xitor_id, id.vhmacitm_action_items.cf.vhmacitm_action_status), &apos;act_action_category&apos; =&gt; util.getvalstrbyid(rec.xitor_id, id.vhmacitm_action_items.cf.vhmacitm_action_category), &apos;act_priority&apos; =&gt; util.getvalstrbyid(rec.xitor_id, id.vhmacitm_action_items.cf.vhmacitm_priority), &apos;act_department_owner&apos; =&gt; util.getvalstrbyid(rec.xitor_id, id.vhmacitm_action_items.cf.vhmacitm_department_owner), &apos;act_due__forecast_date&apos; =&gt; util.getvalstrbyid(rec.xitor_id, id.vhmacitm_action_items.cf.vhmacitm_due__forecast_date), &apos;act_future_notification_date&apos; =&gt; util.getvalstrbyid(rec.xitor_id, id.vhmacitm_action_items.cf.vhmacitm_future_notification_date), &apos;act_action_assigned_to&apos; =&gt; util.getvalstrbyid(rec.xitor_id, id.vhmacitm_action_items.cf.vhmacitm_action_assigned_to), &apos;act_action_comments&apos; =&gt; util.getvalstrbyid(rec.xitor_id, id.vhmacitm_action_items.cf.vhmacitm_action_comments))),
+                &apos;&apos;,
+                v_email,
+                null,
+                null,
+               &apos;html&apos;
+            );
+            
+        end loop;
+        
+    end send_action_item_notification;
+    
+end;</DB_PACKAGE_BODY>
+  <DB_PACKAGE_ID>10073338</DB_PACKAGE_ID>
+  <PROGRAM_ID>1000991863</PROGRAM_ID>
+  <BPD_ITEMS/>
+  <COMPONENT_PACKAGES>
+   <T_BPL_COMP_PKG>
+    <COMPONENT_ID>27</COMPONENT_ID>
+    <OBJECT_ID>10073338</OBJECT_ID>
+    <COMPONENTS_PACKAGE_ID>214177</COMPONENTS_PACKAGE_ID>
+    <NAME>VHMACITM Action Items</NAME>
+    <PROGRAM_ID>1000991863</PROGRAM_ID>
+    <BPD_ITEMS/>
+    <IS_LOCKED>0</IS_LOCKED>
+   </T_BPL_COMP_PKG>
+  </COMPONENT_PACKAGES>
+  <COMPONENT_LABELS>
+   <LIST_LABEL>
+    <T_LABEL>
+     <APP_LANG_ID>0</APP_LANG_ID>
+     <APP_LABEL_ID>-7498403</APP_LABEL_ID>
+     <LABEL_TEXT>OneVizion - Action Item Notification</LABEL_TEXT>
+    </T_LABEL>
+    <T_LABEL>
+     <APP_LANG_ID>1</APP_LANG_ID>
+     <APP_LABEL_ID>-7498403</APP_LABEL_ID>
+     <LABEL_TEXT>OneVizion - Action Item Notification</LABEL_TEXT>
+    </T_LABEL>
+   </LIST_LABEL>
+   <LIST_LABEL>
+    <T_LABEL>
+     <APP_LANG_ID>0</APP_LANG_ID>
+     <APP_LABEL_ID>-7498402</APP_LABEL_ID>
+     <LABEL_TEXT>This Action Item record has reached the scheduled notification date. Please complete the open action item. &lt;br&gt;OneVizion Link: {trackor_link}  &lt;br&gt;Action ID: {xitor_key} &lt;br&gt;Parent Record(s): {v_{ProjectTrackorType}_key} &lt;br&gt;Action Name: {act_action_item_name} &lt;br&gt;Status: {act_action_status} &lt;br&gt;Category: {act_action_category} &lt;br&gt;Priority: {act_priority}&lt;br&gt;Department: {act_department_owner} &lt;br&gt;Due / Forecast Date: {act_due__forecast_date} &lt;br&gt;Future Notification Date: {act_future_notification_date} &lt;br&gt;Action Assigned To: {act_action_assigned_to} &lt;br&gt;Action Comments: {act_action_comments} &lt;br&gt;---</LABEL_TEXT>
+    </T_LABEL>
+    <T_LABEL>
+     <APP_LANG_ID>1</APP_LANG_ID>
+     <APP_LABEL_ID>-7498402</APP_LABEL_ID>
+     <LABEL_TEXT>This Action Item record has reached the scheduled notification date. Please complete the open action item. &lt;br&gt;OneVizion Link: {trackor_link}  &lt;br&gt;Action ID: {xitor_key} &lt;br&gt;Parent Record(s): {v_{ProjectTrackorType}_key} &lt;br&gt;Action Name: {act_action_item_name} &lt;br&gt;Status: {act_action_status} &lt;br&gt;Category: {act_action_category} &lt;br&gt;Priority: {act_priority}&lt;br&gt;Department: {act_department_owner} &lt;br&gt;Due / Forecast Date: {act_due__forecast_date} &lt;br&gt;Future Notification Date: {act_future_notification_date} &lt;br&gt;Action Assigned To: {act_action_assigned_to} &lt;br&gt;Action Comments: {act_action_comments} &lt;br&gt;---</LABEL_TEXT>
+    </T_LABEL>
+   </LIST_LABEL>
+  </COMPONENT_LABELS>
+ </DB_PACKAGES_ITEM>
+</DB_PACKAGES>
+</COMPONENTS>
